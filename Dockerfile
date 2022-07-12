@@ -4,6 +4,6 @@ WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
 FROM openjdk:8-jdk-alpine
-COPY --from=build /home/gradle/src/build/libs/*.jar app.jar
+COPY --from=build /home/gradle/src/build/libs/*.jar ./
 ENV JAVA_OPTS="-Xms50M -Xmx300M"
-CMD java $JAVA_OPTS -jar "/app.jar"
+CMD java $JAVA_OPTS -jar "/quotes.api-0.0.1-SNAPSHOT.jar"
