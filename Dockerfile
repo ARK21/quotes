@@ -5,8 +5,7 @@ RUN gradle build --no-daemon
 
 FROM openjdk:8-jdk-alpine
 
-EXPOSE 8080
-
 COPY --from=build /home/gradle/src/build/libs/*.jar ./
 ENV JAVA_OPTS="-Xms50M -Xmx300M"
-CMD java $JAVA_OPTS -jar "/quotes.api-0.0.1-SNAPSHOT.jar"
+ENV PORT=8080
+CMD java $JAVA_OPTS -jar "/quotes.api-0.0.1-SNAPSHOT.jar" -p $PORT
