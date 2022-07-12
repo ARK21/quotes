@@ -22,7 +22,7 @@ public interface QuoteService {
      * @param id идентификатор цитаты
      * @return цитата или null
      */
-    Quote get(Long id);
+    Quote get(String id);
 
     /**
      * Обновляет информацию о цитате
@@ -30,18 +30,32 @@ public interface QuoteService {
      * @param text новый текст
      * @return true - обновил, false - нет
      */
-    boolean update(Long id, String text);
+    boolean update(String id, String text);
 
     /**
      * Удаляет цитату
      * @param id идентификатор цитаты
      * @return true - была удалена, false - не была
      */
-    boolean delete(Long id);
+    boolean delete(String id);
 
     /**
      * Получает 10
      * @return список цитат
      */
     List<Quote> getTop10();
+
+    /**
+     * Лайкнуть цитату
+     * @param quoteGuid идентификатор цитаты
+     * @return true - цитата была лайкнута, цитата не была лайкнута.
+     */
+    boolean toApprove(String quoteGuid);
+
+    /**
+     * Лайкнуть цитату
+     * @param quoteGuid идентификатор цитаты
+     * @return true - цитата была лайкнута, цитата не была лайкнута.
+     */
+    boolean toDisapprove(String quoteGuid);
 }

@@ -1,14 +1,27 @@
-insert into quotes (id, text) values (0, '1 текст');
-insert into quotes (id, text) values (2, '2 текст');
-insert into quotes (id, text) values (3, '3 текст');
-insert into quotes (id, text) values (4, '4 текст');
-insert into quotes (id, text) values (5, '4 текст');
-insert into quotes (id, text) values (6, '4 текст');
-insert into quotes (id, text) values (7, '4 текст');
-insert into quotes (id, text) values (8, '4 текст');
-insert into quotes (id, text) values (9, '4 текст');
-insert into quotes (id, text) values (10, '4 текст');
-insert into quotes (id, text) values (11, '4 текст');
-insert into quotes (id, text) values (12, '4 текст');
-insert into quotes (id, text) values (13, '4 текст');
+insert into quotes (id, guid, text, likes, dislikes)
+values (0, random_uuid(), '1 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (2, random_uuid(), '2 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (3, random_uuid(), '3 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (4, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (5, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (6, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (7, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (8, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (9, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (10, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (11, random_uuid(), '4 текст', rand(1), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (12, random_uuid(), '4 текст', rand(), rand());
+insert into quotes (id, guid, text, likes, dislikes)
+values (13, random_uuid(), '4 текст', rand(), rand());
 

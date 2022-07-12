@@ -41,7 +41,7 @@ public class QuoteController {
                     description = "Quote identifier",
                     required = true))
     @GetMapping("/get/{id}")
-    public Quote get(@PathVariable(name = "id") Long id) {
+    public Quote get(@PathVariable(name = "id") String id) {
         return quoteService.get(id);
     }
 
@@ -60,7 +60,7 @@ public class QuoteController {
                             schema = @Schema(implementation = String.class)
                     )))
     @PostMapping("/update/{id}")
-    public boolean update(@PathVariable(name = "id") Long id, @RequestBody String body) {
+    public boolean update(@PathVariable(name = "id") String id, @RequestBody String body) {
         return quoteService.update(id, body);
     }
 
@@ -73,7 +73,7 @@ public class QuoteController {
                     description = "The quote id to be deleted",
                     required = true))
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable(name = "id") Long id) {
+    public boolean delete(@PathVariable(name = "id") String id) {
         return quoteService.delete(id);
     }
 
@@ -83,6 +83,31 @@ public class QuoteController {
     @GetMapping("/quotes")
     public List<Quote> getQuotes() {
         return quoteService.getTop10();
+    }
+
+    @Operation(method = "POST",
+            tags = "Quotes",
+            description = "To approve the quote",
+            parameters = @Parameter(
+                    name = "id",
+                    description = "The quote id to be approved",
+                    required = true))
+    @PostMapping("quote/{id}/like")
+    public boolean like(@PathVariable("id") String id) {
+        return quoteService.toApprove(id);
+    }
+
+
+    @Operation(method = "POST",
+            tags = "Quotes",
+            description = "To disapprove the quote",
+            parameters = @Parameter(
+                    name = "id",
+                    description = "The quote id to be disapproved",
+                    required = true))
+    @PostMapping("quote/{id}/dislike")
+    public boolean dislike(@PathVariable("id") String id) {
+        return quoteService.toDisapprove(id);
     }
 
 }
